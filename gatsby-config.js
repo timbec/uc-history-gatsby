@@ -1,11 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Uranium City History Website`,
+    description: `Front end for 'Uranium City History' website at 'uraniumcity-history.com'.`,
     author: `@gatsbyjs`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,6 +12,46 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-wordpress',
+      options: {
+        baseUrl: "uraniumcity-history.com",
+        protocol: "http",
+        hostingWPCOM: false,
+        useACF: true,
+        acfOptionsPageIds: [],
+        verboseOutput: true,
+        perPage: 10,
+        searchAndReplaceContentUrls: {
+          sourceUrl: "http://uraniumcity-history.com",
+          replacementUrl: "http://localhost:8000"
+        },
+        concurrentRequests: 10,
+        includedRoutes: [
+          "**/categories",
+          "**/posts",
+          "**/pages",
+          "**/places",
+          "**/writing",
+          "**/video",
+          "**/media",
+          "**/tags",
+          "**/taxonomies"
+        ],
+        normalizer: function ({ entities }) {
+          return entities
+        },
+      },
+    },
+    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'src',
+        path: `${__dirname}/src/`
+      }
+    },
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
