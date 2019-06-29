@@ -8,7 +8,7 @@ const SendStuff = () => (
   <Layout>
     <SEO title="SendStuff" />
     <h1>Send Stuff</h1>
-    <Link to="/">Go back to the homepage</Link>
+    
   </Layout>
 )
 

@@ -8,7 +8,7 @@ const Writing = () => (
   <Layout>
     <SEO title="Writing" />
     <h1>Writing</h1>
-    <Link to="/">Go back to the homepage</Link>
+   
   </Layout>
 )
 

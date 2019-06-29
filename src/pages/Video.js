@@ -8,7 +8,7 @@ const Video = () => (
   <Layout>
     <SEO title="Video" />
     <h1>Video</h1>
-    <Link to="/">Go back to the homepage</Link>
+    
   </Layout>
 )
 

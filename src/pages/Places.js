@@ -8,7 +8,6 @@ const Places = () => (
   <Layout>
     <SEO title="Places" />
     <h1>Places</h1>
-    <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
 
