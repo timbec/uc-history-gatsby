@@ -49,8 +49,6 @@ const IndexPage = () => (
     <PhotographSection />
     <AboutSection />
     <RecentSection />
-
-    
   </Layout>
 )
 
