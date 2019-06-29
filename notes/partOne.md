@@ -1,4 +1,11 @@
-question here is whether to use componentDidMount() with graphQL or not, and how to incorporate gatsby.js with what I learned in 'read to react'. 
+### Using Gatsby.js with Context API: 
+
+https://github.com/gatsbyjs/gatsby/issues/6258
+https://hackernoon.com/how-to-get-started-with-the-react-context-api-ccc41728fa59
+
+- it seems Gatsby works fine with Context API. Much rather use Context if possible to avoid the dreaded props drilling. 
+
+question here is whether to use componentDidMount() with graphQL or not, and how to incorporate gatsby.js with what I learned in 'r0ad to react'. 
 
 Github: 
 https://github.com/the-road-to-learn-react/hackernews-client/blob/master/src/App.js
