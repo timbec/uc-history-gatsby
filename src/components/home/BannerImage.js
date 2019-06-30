@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react'; 
+
+// have to make this available for REST
 
 const BannerImage = () => {
     return (
