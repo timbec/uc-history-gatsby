@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 
-const PostFragment = (post) => {
-    // const post = { title, slug, excerpt }
-    console.log(post);
+const PostFragment = ({post}) => {
+    const { title, slug, excerpt } = post;
+    console.log(title);
     return (
-            <li key={post.node.wordpress_id} 
+            <li 
             className="post__link">
                                 <figure className="post__image">
                                 <img src={post.node.featured_media.source_url} />

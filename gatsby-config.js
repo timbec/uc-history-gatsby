@@ -31,11 +31,15 @@ module.exports = {
           "**/categories",
           "**/posts",
           "**/pages",
+          "**/slider",
+          "**/news",
           "**/places",
           "**/writing",
-          "**/video",
+          "**/video", 
+          "**/memorabilia",
           "**/media",
           "**/tags",
+          "**/comments",
           "**/taxonomies"
         ],
         normalizer: function ({ entities }) {
@@ -55,18 +59,28 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-transformer-remark',
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+          plugins: [
+              'gatsby-remark-relative-images',
+              {
+                  resolve: 'gatsby-remark-images',
+                  options: {
+                      maxWidth: 750,
+                      linkImagesToOriginal: false
+                  }
+              }, 
+              {
+                resolve: `gatsby-plugin-remote-images`,
+                options: {
+                  nodeType: 'allImageSharp',
+                  imagePath: 'path.to.image',
+                },
+              },
+          ]
+      }
+  },
+    // this (optional) plugin enables Progressive Web App + Offlinnpe functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],

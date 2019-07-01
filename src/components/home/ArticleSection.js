@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import Image from 'gatsby-image';
 
 import PostFragment from '../postItems/postFragment'; 
 
@@ -15,6 +16,13 @@ const ArticleSection = () => {
                         slug
                         wordpress_id
                         featured_media {
+                            localFile {
+                                childImageSharp {
+                                  fluid {
+                                    src
+                                  }
+                                }
+                              }
                             source_url
                           }
                     }
@@ -30,14 +38,10 @@ const ArticleSection = () => {
                 {
                     data.allWordpressWpWriting.edges.map((post) => {
                         return (
-                            <li key={post.node.wordpress_id} 
-                            className="post__link">
-                                                <figure className="post__image">
-                                                <img src={post.node.featured_media.source_url} />
-                                                </figure>
-                                            <h2 className="post__title" dangerouslySetInnerHTML={{ __html: post.node.title }} />
-                                            <p className="post__escerpt" dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-                                        </li>
+                            <PostFragment 
+                            key={post.node.wordpress_id} 
+                            post={post} 
+                            />
                         )
                     })
                 }
